@@ -6,13 +6,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.votafilipe.model.domain.Candidato;
-import br.edu.infnet.votafilipe.model.repository.CandidatoRepository;
+import br.edu.infnet.votafilipe.model.domain.service.CandidatoService;
 
 @Component
 public class CandidatoLoader implements ApplicationRunner {
 
 	@Autowired
-	private CandidatoRepository candidatoRepository;
+	private CandidatoService candidatoService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -21,7 +21,7 @@ public class CandidatoLoader implements ApplicationRunner {
 		candidato.setNumero(802);
 		
 		try {
-			candidatoRepository.save(candidato);
+			candidatoService.incluir(candidato);
 			System.out.println("Sucesso. Inclusão do candidato realizada.");
 		} catch (Exception e) {
 			System.out.println("[ERRO]" + e.getMessage());

@@ -15,6 +15,7 @@ public class Voto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private LocalDateTime data;
 	private String localizacao;
 	@Transient

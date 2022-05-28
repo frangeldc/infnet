@@ -12,13 +12,13 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "TEleitor", uniqueConstraints = @UniqueConstraint(columnNames={"codigo"})
-)
+@Table(name = "TEleitor", uniqueConstraints = @UniqueConstraint(columnNames={"codigo"}))
 public class Eleitor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String codigo;
+	
 	private String nome;
 	private String email;
 	private String telefone;

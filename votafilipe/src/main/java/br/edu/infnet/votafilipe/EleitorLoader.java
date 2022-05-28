@@ -5,24 +5,23 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.votafilipe.model.domain.Candidato;
-import br.edu.infnet.votafilipe.model.repository.CandidatoRepository;
+import br.edu.infnet.votafilipe.model.domain.Eleitor;
+import br.edu.infnet.votafilipe.model.repository.EleitorRepository;
 
 @Component
 public class EleitorLoader implements ApplicationRunner {
 
 	@Autowired
-	private CandidatoRepository candidatoRepository;
+	private EleitorRepository eleitorRepository;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		Candidato candidato = new Candidato();
-		candidato.setNome("Candidato Filipe");
-		candidato.setNumero(802);
+		Eleitor eleitor = new Eleitor();
+		eleitor.setCodigo("codigo 252");
 		
 		try {
-			candidatoRepository.save(candidato);
-			System.out.println("Sucesso. Inclusão do candidato realizada.");
+			eleitorRepository.save(eleitor);
+			System.out.println("Sucesso. Inclusão do eleitor realizada.");
 		} catch (Exception e) {
 			System.out.println("[ERRO]" + e.getMessage());
 		}

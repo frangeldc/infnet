@@ -12,14 +12,13 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "TEleicao", uniqueConstraints = @UniqueConstraint(columnNames={"descricao"})
-)
+@Table(name = "TEleicao", uniqueConstraints = @UniqueConstraint(columnNames={"descricao"}))
 public class Eleicao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private LocalDateTime data;
 	private String descricao;
+	private LocalDateTime data;
 
 	@Transient
 	private List<Voto> votos;
