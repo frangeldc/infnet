@@ -11,42 +11,58 @@ import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "TCandidato", uniqueConstraints = @UniqueConstraint(columnNames={"numero"}))
+@Table(name = "TCandidato", uniqueConstraints = @UniqueConstraint(columnNames = { "numero" }))
 public class Candidato {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	private int numero;
 	private String nome;
 	@Transient
-	private List<Eleicao> eleicoes;
+	private Eleicao eleicao;
 	@Transient
 	private List<Voto> votos;
-	
+
 	public int getNumero() {
 		return numero;
 	}
+
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+
 	public String getNome() {
 		return nome;
 	}
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public List<Eleicao> getEleicoes() {
-		return eleicoes;
-	}
-	public void setEleicoes(List<Eleicao> eleicoes) {
-		this.eleicoes = eleicoes;
-	}
+
 	public List<Voto> getVotos() {
 		return votos;
 	}
+
 	public void setVotos(List<Voto> votos) {
 		this.votos = votos;
 	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Eleicao getEleicao() {
+		return eleicao;
+	}
+
+	public void setEleicao(Eleicao eleicao) {
+		this.eleicao = eleicao;
+	}
 	
-	
+
 }

@@ -42,6 +42,11 @@
 					value="21 22222222">
 			</div>
 
+			<div class="mb-3 mt-3">
+				<label>Token:</label> <input type="password" class="form-control"
+					placeholder="Entre com o seu token" name="token" value="123">
+			</div>
+
 			<button type="submit" class="btn btn-primary">Cadastrar</button>
 		</form>
 	</div>

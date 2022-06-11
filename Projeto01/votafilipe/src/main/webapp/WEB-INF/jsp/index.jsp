@@ -12,7 +12,7 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container mt-3">
-	  <h2>Votaew: gestão de votação</h2>
+	  <h2>VotaAE: gestão de votação</h2>
 	</div>
 </body>
 </html>

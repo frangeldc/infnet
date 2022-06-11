@@ -1,30 +1,33 @@
 package br.edu.infnet.votafilipe.model.domain;
 
-
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "TEleitor", uniqueConstraints = @UniqueConstraint(columnNames={"codigo"}))
+@Table(name = "TEleitor", uniqueConstraints = @UniqueConstraint(columnNames = { "codigo" }))
 public class Eleitor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private String codigo;
+	private Integer id;
 	
+	private String codigo;
 	private String nome;
 	private String email;
 	private String telefone;
 	private String token;
 	
-	@Transient
+	@OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true)
+	@JoinColumn(name = "idEleitor")
 	private List<Voto> votos;
 
 	public String getCodigo() {
@@ -73,5 +76,14 @@ public class Eleitor {
 
 	public void setVotos(List<Voto> votos) {
 		this.votos = votos;
-	}	
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
 }

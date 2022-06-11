@@ -6,13 +6,13 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.votafilipe.model.domain.Eleicao;
-import br.edu.infnet.votafilipe.model.repository.EleicaoRepository;
+import br.edu.infnet.votafilipe.model.domain.service.EleicaoService;
 
 @Component
 public class EleicaoLoader implements ApplicationRunner {
 
 	@Autowired
-	private EleicaoRepository eleicaoRepository;
+	private EleicaoService eleicaoService;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -20,8 +20,8 @@ public class EleicaoLoader implements ApplicationRunner {
 		eleicao.setDescricao("Descricao da eleicao");
 		
 		try {
-			eleicaoRepository.save(eleicao);
-			System.out.println("Sucesso. Inclusão da eleicao realizada.");
+			eleicaoService.incluir(eleicao);
+			System.out.println("[SUCESSO] Sucesso. Inclusão da eleicao realizada.");
 		} catch (Exception e) {
 			System.out.println("[ERRO]" + e.getMessage());
 		}

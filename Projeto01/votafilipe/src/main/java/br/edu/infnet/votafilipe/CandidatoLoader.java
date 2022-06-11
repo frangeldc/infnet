@@ -22,7 +22,7 @@ public class CandidatoLoader implements ApplicationRunner {
 		
 		try {
 			candidatoService.incluir(candidato);
-			System.out.println("Sucesso. Inclusão do candidato realizada.");
+			System.out.println("[SUCESSO] Sucesso. Inclusão do candidato realizada.");
 		} catch (Exception e) {
 			System.out.println("[ERRO]" + e.getMessage());
 		}

@@ -12,43 +12,39 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
-	  <h2>Cadastramento de Bebidas</h2>
+	  <h2>Cadastramento de Voto</h2>
 	  
-	  <c:if test="${not empty mensagem}">
-		<div class="alert alert-success">
-		  <strong>Confirmação!</strong> ${mensagem}
-		</div>	  
-	  </c:if>
+	  <form action="/voto/incluir" method="post">
+		<div class="form-group">
+			<c:if test = "${not empty eleitores}">
+		  	<label>Eleitor:</label>
+		  	<select class="form-control" name="eleitor.id">
+		    	<c:forEach var="e" items="${eleitores}">
+		    	<option value="${e.id}">${e.nome}</option>
+		    	</c:forEach>
+		  	</select>
+		  	</c:if>c:if>
+		</div>
 
-	  <form action="/bebida/incluir" method="post">
-	    <div class="mb-3 mt-3">
-	      <label>Descrição:</label>
-	      <input type="text" class="form-control" placeholder="Entre com a descrição da bebida" name="descricao" value="Primeira bebida">
-	    </div>
+		<div class="form-group">
+		  	<label>Eleição:</label>
+		  	<select class="form-control" name="eleicao.id">
+		    	<option value="${eleicao.id}">${eleicao.descricao}</option>
+		  	</select>
+		</div>
+
+		<div class="form-group">
+		  	<label>Candidato:</label>
+		  	<select class="form-control" name="candidato.id">
+		    	<c:forEach var="c" items="${candidatos}">
+		    	<option value="${c.id}">${c.nome}</option>
+		    	</c:forEach>
+		  	</select>
+		</div>
 
 	    <div class="mb-3 mt-3">
-	      <label>Valor:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o valor da bebida" name="valor" value="999">
-	    </div>
-
-	    <div class="mb-3 mt-3">
-	      <label>Peso:</label>
-	      <input type="text" class="form-control" placeholder="Entre com o peso da bebida" name="peso" value="150">
-	    </div>
-
-	    <div class="mb-3 mt-3">
-	      <label>Marca:</label>
-	      <input type="text" class="form-control" placeholder="Entre com a marca da bebida" name="marca" value="Teste marca">
-	    </div>
-
-	    <div class="mb-3 mt-3">
-	      <label>Características:</label>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="true" name="importada">Importada</label>
-			</div>
-			<div class="checkbox">
-			  <label><input type="checkbox" value="true" name="gelada">Gelada</label>
-			</div>
+	      <label>Localização:</label>
+	      <input type="text" class="form-control" placeholder="Entre com a sua localização" name="localizacao" value="Localiza">
 	    </div>
 
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>

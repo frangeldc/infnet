@@ -12,7 +12,7 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
-	  <h2>Cadastramento de Bebidas</h2>
+	  <h2>Cadastramento de Votos</h2>
 
 	  <c:if test="${not empty mensagem}">
 		<div class="alert alert-success">
@@ -20,38 +20,36 @@
 		</div>	  
 	  </c:if>
 
-	  <form action="/bebida" method="get">
-	    <button type="submit" class="btn btn-primary">Nova</button>
+	  <form action="/voto" method="get">
+	    <button type="submit" class="btn btn-primary">Novo voto</button>
 	  </form>
 	  
 	  <hr>
 	<c:if test="${not empty lista}">		
-		<h2>Total de Bebidas: ${lista.size()}</h2>
+		<h2>Total de Votos: ${lista.size()}</h2>
 		  
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
 		        <th>ID</th>
-		        <th>Descrição</th>
-		        <th>Valor</th>
-		        <th>Peso</th>
-		        <th>Marca</th>
-		        <th>Importada</th>
-		        <th>Gelada</th>
+		        <th>Data</th>
+		        <th>Localizacao</th>
+		        <th>Eleitor</th>
+		        <th>Candidato</th>
+		        <th>Eleicao</th>
 		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <c:forEach var="b" items="${lista}">
+		      <c:forEach var="v" items="${lista}">
 			      <tr>
-			        <td>${b.id}</td>
-			        <td>${b.descricao}</td>
-			        <td>${b.valor}</td>
-			        <td>${b.peso}</td>
-			        <td>${b.marca}</td>
-			        <td>${b.importada}</td>
-			        <td>${b.gelada}</td>
-		        	<td><a href="/bebida/${b.id}/excluir">excluir</a></td>
+			        <td>${v.id}</td>
+			        <td>${v.data}</td>
+			        <td>${v.localizacao}</td>
+			        <td>${v.eleitor.codigo}</td>
+			        <td>${v.candidato.nome}</td>
+			        <td>${v.eleicao.descricao}</td>
+		        	<td><a href="/voto/${v.id}/excluir">excluir</a></td>
 			      </tr>
 		      </c:forEach>		      
 		    </tbody>
@@ -59,7 +57,7 @@
     </c:if>	  	  
 
 	<c:if test="${empty lista}">		
-	  <h2>Não existem bebidas cadastrados!!!</h2>
+	  <h2>Não existem votos cadastrados.</h2>
 	</c:if>
 
 	</div>

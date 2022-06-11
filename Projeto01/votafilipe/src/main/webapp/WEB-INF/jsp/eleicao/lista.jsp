@@ -23,7 +23,7 @@
 		</c:if>
 
 		<form action="/eleicao" method="get">
-			<button type="submit" class="btn btn-primary">Nova</button>
+			<button type="submit" class="btn btn-primary">Nova eleicao</button>
 		</form>
 
 		<hr>
@@ -33,16 +33,22 @@
 			<table class="table table-striped">
 				<thead>
 					<tr>
+						<th>ID</th>
 						<th>Descrição</th>
 						<th>Data</th>
-					<th></th>
+						<th>Votos</th>
+						<th>Candidatos</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="e" items="${lista}">
 						<tr>
+							<td>${e.id}</td>
 							<td>${e.descricao}</td>
 							<td>${e.data}</td>
+							<td>${e.votos.size()}</td>
+							<td>${e.candidatos.numero}</td>
 							<td><a href="/eleicao/${e.id}/excluir">excluir</a></td>
 						</tr>
 					</c:forEach>
@@ -51,7 +57,7 @@
 		</c:if>
 
 		<c:if test="${empty lista}">
-			<h2>Não existem eleicoes cadastrados!!!</h2>
+			<h2>Não existem eleicoes cadastrados.</h2>
 		</c:if>
 
 	</div>
