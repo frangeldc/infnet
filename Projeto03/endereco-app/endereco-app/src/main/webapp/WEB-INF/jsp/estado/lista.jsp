@@ -33,7 +33,7 @@
 						<tr>
 							<td>${e.nome}</td>
 							<td>${e.sigla}</td>
-							<td><a href="/estado/${e.id}/municipios">Municipios</a></td>
+							<td><a href="/municipio/${e.id}">Municipios</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

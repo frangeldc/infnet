@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.enderecoapp.model.service.EstadoService;
 
@@ -19,6 +20,14 @@ public class EstadoController {
 		model.addAttribute("lista", estadoService.obterLista());
 		
 		return "estado/lista";
+	}
+	
+	@GetMapping(value = "/municipio/{UF}")
+	public String telaListaUF(Model model,@PathVariable String UF) {
+		//estadoService.obterPorUF(UF);
+		model.addAttribute("lista", estadoService.obterPorUF(UF));
+		
+		return "municipio/lista";
 	}
 	
 }

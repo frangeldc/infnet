@@ -24,7 +24,6 @@
 				<thead>
 					<tr>
 						<th>Nome</th>
-						<th>Sigla</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -32,8 +31,6 @@
 					<c:forEach var="e" items="${lista}">
 						<tr>
 							<td>${e.nome}</td>
-							<td>${e.sigla}</td>
-							<td><a href="/estado/${e.id}/municipios">Municipios</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -41,7 +38,7 @@
 		</c:if>
 
 		<c:if test="${empty lista}">
-			<h2>Não existem enderecos cadastrados.</h2>
+			<h2>Não existem Municipios cadastrados.</h2>
 		</c:if>
 
 	</div>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import br.edu.infnet.enderecoapp.clients.IBGEClient;
 import br.edu.infnet.enderecoapp.model.domain.Estado;
+import br.edu.infnet.enderecoapp.model.domain.Municipio;
 
 @Service
 public class EstadoService {
@@ -18,4 +19,10 @@ public class EstadoService {
 
 		return IBGEClient.obterLista();
 	}
+	
+	public List<Municipio> obterPorUF(String UF) {
+		return IBGEClient.obterPorUF(UF);
+
+	}
+	
 }
