@@ -11,33 +11,33 @@
 </head>
 <body>
 
-	<c:import url="/WEB-INF/jsp/menu.jsp" />
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
-		<h2>Cadastramento de Candidatos</h2>
+	  <h2>Cadastramento de Candidatos</h2>
+	  
+	  <form action="/candidato/incluir" method="post">
+		<div class="form-group">
+		  	<label>Eleicoes:</label>
+		  	<select class="form-control" name="eleicao.id">
+		    	<c:forEach var="e" items="${eleicoes}">
+		    	<option value="${e.id}">${e.descricao}</option>
+		    	</c:forEach>
+		  	</select>
+		</div>
 
-		<c:if test="${not empty mensagem}">
-			<div class="alert alert-success">
-				<strong>Confirmação!</strong> ${mensagem}
-			</div>
-		</c:if>
+	    <div class="mb-3 mt-3">
+	      <label>Numero:</label>
+	      <input type="number" class="form-control" placeholder="Entre com o seu número" name="numero" value="123123">
+	    </div>
 
-		<form action="/candidato/incluir" method="post">
+	    <div class="mb-3 mt-3">
+	      <label>Nome:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu nome" name="nome" value="Elberth L C Moraes">
+	    </div>
 
-			<div class="mb-3 mt-3">
-				<label>Número:</label> <input type="number" class="form-control"
-					placeholder="Entre com o número do candidato" name="numero"
-					value="111">
-			</div>
-
-			<div class="mb-3 mt-3">
-				<label>Nome:</label> <input type="text" class="form-control"
-					placeholder="Entre com o nome do candidato" name="nome"
-					value="Filipe">
-			</div>
-
-			<button type="submit" class="btn btn-primary">Cadastrar</button>
-		</form>
+	    <button type="submit" class="btn btn-primary">Cadastrar</button>
+	  </form>
 	</div>
 
 </body>

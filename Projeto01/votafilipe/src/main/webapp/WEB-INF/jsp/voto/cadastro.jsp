@@ -16,14 +16,12 @@
 	  
 	  <form action="/voto/incluir" method="post">
 		<div class="form-group">
-			<c:if test = "${not empty eleitores}">
 		  	<label>Eleitor:</label>
 		  	<select class="form-control" name="eleitor.id">
 		    	<c:forEach var="e" items="${eleitores}">
 		    	<option value="${e.id}">${e.nome}</option>
 		    	</c:forEach>
 		  	</select>
-		  	</c:if>c:if>
 		</div>
 
 		<div class="form-group">

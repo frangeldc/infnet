@@ -10,6 +10,6 @@ import br.edu.infnet.votafilipe.model.domain.Candidato;
 
 @Repository
 public interface CandidatoRepository extends CrudRepository<Candidato, Integer> {
-	//@Query("from Candidato c where c.eleicao.id = :eleicaoId")
-	//List<Candidato> findAll(Integer eleicaoId);
+	@Query("from Candidato c where c.eleicao.id = :eleicaoId")
+	List<Candidato> findAll(Integer eleicaoId);
 }

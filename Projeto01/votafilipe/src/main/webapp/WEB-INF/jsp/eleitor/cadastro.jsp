@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Cadastro</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -19,7 +19,7 @@
 
 		<form action="/eleitor/incluir" method="post">
 			<div class="mb-3 mt-3">
-				<label>Código:</label> <input type="text" class="form-control"
+				<label>Codigo:</label> <input type="text" class="form-control"
 					placeholder="Entre com o código do eleitor" name="codigo"
 					value="codigo 001">
 			</div>

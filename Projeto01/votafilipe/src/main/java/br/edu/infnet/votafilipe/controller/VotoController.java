@@ -6,7 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import br.edu.infnet.votafilipe.model.domain.Eleicao;
 import br.edu.infnet.votafilipe.model.domain.Voto;
 import br.edu.infnet.votafilipe.model.domain.service.CandidatoService;
 import br.edu.infnet.votafilipe.model.domain.service.EleicaoService;
@@ -26,7 +28,13 @@ public class VotoController {
 	private EleitorService eleitorService;
 
 	@GetMapping(value = "/voto")
-	public String cadastro(Model model) {
+	public String cadastro(Model model, @RequestParam Integer idEleicao) {
+		
+		Eleicao eleicao = eleicaoService.obterPorId(idEleicao);
+		
+		model.addAttribute("eleicao", eleicao);
+		
+		model.addAttribute("candidatos", candidatoService.obterLista(eleicao));
 		
 		model.addAttribute("eleitores", eleitorService.obterLista());
 		
@@ -37,6 +45,8 @@ public class VotoController {
 	public String lista(Model model) {
 		
 		model.addAttribute("lista", votoService.obterLista());
+		
+		model.addAttribute("eleicoes", eleicaoService.obterLista());
 		
 		return "voto/lista";
 	}

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>AppMIT</title>
+<title>Lista</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
@@ -36,8 +36,8 @@
 						<th>ID</th>
 						<th>Descrição</th>
 						<th>Data</th>
-						<th>Votos</th>
 						<th>Candidatos</th>
+						<th>Votos</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -47,8 +47,8 @@
 							<td>${e.id}</td>
 							<td>${e.descricao}</td>
 							<td>${e.data}</td>
+							<td>${e.candidatos.size()}</td>
 							<td>${e.votos.size()}</td>
-							<td>${e.candidatos.numero}</td>
 							<td><a href="/eleicao/${e.id}/excluir">excluir</a></td>
 						</tr>
 					</c:forEach>

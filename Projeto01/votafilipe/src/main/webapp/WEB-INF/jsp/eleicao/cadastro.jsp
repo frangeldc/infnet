@@ -16,8 +16,8 @@
 
 	  <form action="/eleicao/incluir" method="post">
 	    <div class="mb-3 mt-3">
-	      <label>Descrição:</label>
-	      <input type="text" class="form-control" placeholder="Entre com a descrição da eleicao." name="eleicao" value="Eleicao">
+	      <label>Descricao:</label>
+	      <input type="text" class="form-control" placeholder="Entre com a descrição da eleicao." name="descricao" value="Eleicao">
 	    </div>
 
 	    <button type="submit" class="btn btn-primary">Cadastrar</button>

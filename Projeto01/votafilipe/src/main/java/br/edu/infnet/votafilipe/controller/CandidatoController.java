@@ -9,23 +9,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.infnet.votafilipe.model.domain.Candidato;
 import br.edu.infnet.votafilipe.model.domain.service.CandidatoService;
+import br.edu.infnet.votafilipe.model.domain.service.EleicaoService;
 
 @Controller
 public class CandidatoController {
 
 	@Autowired
 	private CandidatoService candidatoService;
+	@Autowired
+	private EleicaoService eleicaoService;
 
 	@GetMapping(value = "/candidato")
-	public String cadastro() {
+	public String cadastro(Model model) {
+		model.addAttribute("eleicoes", eleicaoService.obterLista());
 		return "candidato/cadastro";
 	}
 
 	@GetMapping(value = "/candidatos")
 	public String lista(Model model) {
-
 		model.addAttribute("lista", candidatoService.obterLista());
-
 		return "candidato/lista";
 	}
 
