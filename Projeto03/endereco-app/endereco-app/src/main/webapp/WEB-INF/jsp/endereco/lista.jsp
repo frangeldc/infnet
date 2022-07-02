@@ -1,3 +1,5 @@
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="security"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -14,19 +16,23 @@
 	<c:import url="/WEB-INF/jsp/menu.jsp" />
 
 	<div class="container mt-3">
-		<h2>Cadastramento de Enderecos</h2>
 
-		<c:if test="${not empty mensagem}">
-			<div class="alert alert-success">
-				<strong>Confirmação!</strong> ${mensagem}
-			</div>
-		</c:if>
+		<security:authorize access="hasRole('ADMIN')">
+			<h2>Cadastramento de Enderecos</h2>
 
-		<form action="/endereco" method="get">
-			<button type="submit" class="btn btn-primary">Novo Endereco</button>
-		</form>
+			<c:if test="${not empty mensagem}">
+				<div class="alert alert-success">
+					<strong>Confirmação!</strong> ${mensagem}
+				</div>
+			</c:if>
 
-		<hr>
+			<form action="/endereco" method="get">
+				<button type="submit" class="btn btn-primary">Novo Endereco</button>
+			</form>
+
+			<hr>
+		</security:authorize>
+
 		<c:if test="${not empty lista}">
 			<h2>Total de Enderecos: ${lista.size()}</h2>
 
@@ -40,7 +46,9 @@
 						<th>Bairro</th>
 						<th>Localidade</th>
 						<th>UF</th>
-						<th></th>
+						<security:authorize access="hasRole('ADMIN')">
+							<th></th>
+						</security:authorize>
 					</tr>
 				</thead>
 				<tbody>
@@ -53,8 +61,9 @@
 							<td>${e.bairro}</td>
 							<td>${e.localidade}</td>
 							<td>${e.uf}</td>
-
-							<td><a href="/endereco/${e.id}/excluir">excluir</a></td>
+							<security:authorize access="hasRole('ADMIN')">
+								<td><a href="/endereco/${e.id}/excluir">excluir</a></td>
+							</security:authorize>
 						</tr>
 					</c:forEach>
 				</tbody>

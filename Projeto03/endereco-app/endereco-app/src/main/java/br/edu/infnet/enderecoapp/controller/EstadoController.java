@@ -23,7 +23,7 @@ public class EstadoController {
 	}
 	
 	@GetMapping(value = "/municipio/{UF}")
-	public String telaListaUF(Model model,@PathVariable String UF) {
+	public String telaListaUF(Model model, @PathVariable String UF) {
 		//estadoService.obterPorUF(UF);
 		model.addAttribute("lista", estadoService.obterPorUF(UF));
 		
